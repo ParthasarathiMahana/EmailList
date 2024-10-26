@@ -1,18 +1,25 @@
 import Email from "./components/Email"
+import { useEmail } from "./context/emailContext"
+import styles from "./styles/App.module.css"
 
 function App() {
 
+  const  {allEmails} = useEmail()
+
   return (
-    <div>
-     <Email 
-     avatarText={"P"} 
-     from={"psm@gmail.com"} 
-     name={"Partha"} 
-     subject={"communicate"} 
-     description={"it has been log since we talk."} 
-     date={"27/04/2027 10:30am"}
-     isFav={false}
-     />
+    <div className={styles.outerContainer}>
+      {allEmails?.map((emailItem, index)=>(
+        <Email 
+        key={index}
+        avatarText={emailItem.from.name.charAt(0)} 
+        from={emailItem.from.email} 
+        name={emailItem.from.name} 
+        subject={emailItem.subject} 
+        description={emailItem.short_description} 
+        date={new Date(emailItem.date).toLocaleString()}
+        isFav={true}
+        />
+      ))}
     </div>
   )
 }

@@ -1,23 +1,31 @@
 .outerBox{
-    width: 95%;
+    width: 98%;
     height: 120px;
     border: 1px solid #cfd2dc;
     border-radius: 10px;
     display: flex;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.outerBox:hover{
+    cursor: pointer;
 }
 .avatarSection{
     width: 8%;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 .detailsSection{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
 }
 .detailItem{
     margin: 0;
-    padding-bottom: 9px;
+    padding-bottom: 5px;
+    background-color: white;
 }
 .avatar{
     height: 33%;
