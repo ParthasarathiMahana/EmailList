@@ -5,15 +5,18 @@ import styles from "./styles/App.module.css"
 
 function App() {
 
-  const  {allEmails, splitScreen, emailBody} = useEmail()
+  const  {getAllEmails, allEmails, splitScreen, emailBody, handleFavoriteFilterClick, handleReadFilterClick, handleUnReadFilterClick} = useEmail()
 
   return (
-    <div 
-    className={splitScreen ? styles.outerContainer : ""}
-    >
-      <div 
-      className={splitScreen ? styles.emailContainer : ""}
-      >
+    <div className={splitScreen ? styles.outerContainer : ""}>
+      <div className={splitScreen ? styles.emailContainer : ""}>
+      <div className={styles.filterOptions}>
+        <span>Filter by:</span>
+        <button onClick={getAllEmails}>All</button>
+        <button onClick={handleUnReadFilterClick}>Unread</button>
+        <button onClick={handleReadFilterClick}>Read</button>
+        <button onClick={handleFavoriteFilterClick}>Favorites</button>
+      </div>
       {allEmails?.map((emailItem, index)=>(
         <Email 
         key={index}

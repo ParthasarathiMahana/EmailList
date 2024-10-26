@@ -27,6 +27,54 @@ export const CustomEmailProvider = ({children}) => {
         }
     }
 
+    const handleReadFilterClick = async () => {
+        try {
+            const response = await axios.get('https://flipkart-email-mock.vercel.app/')
+            const filteredEmails = []
+            response.data.list.map((emailItem)=>{
+                const readStatus = JSON.parse(localStorage.getItem(emailItem.id)).read
+                if(readStatus){
+                    filteredEmails.push(emailItem)
+                }
+            })
+            setAllEmails(filteredEmails)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const handleUnReadFilterClick = async () => {
+        try {
+            const response = await axios.get('https://flipkart-email-mock.vercel.app/')
+            const filteredEmails = []
+            response.data.list.map((emailItem)=>{
+                const readStatus = JSON.parse(localStorage.getItem(emailItem.id)).read
+                if(!readStatus){
+                    filteredEmails.push(emailItem)
+                }
+            })
+            setAllEmails(filteredEmails)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const handleFavoriteFilterClick = async() => {
+        try {
+            const response = await axios.get('https://flipkart-email-mock.vercel.app/')
+            const filteredEmails = []
+            response.data.list.map((emailItem)=>{
+                const favStatus = JSON.parse(localStorage.getItem(emailItem.id)).fav
+                if(favStatus){
+                    filteredEmails.push(emailItem)
+                }
+            })
+            setAllEmails(filteredEmails)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     useEffect(()=>{
         getAllEmails()
     },[])
@@ -35,7 +83,6 @@ export const CustomEmailProvider = ({children}) => {
         setCurrentlyOpenedEmail(id)
         try {
             const response = await axios.get(`https://flipkart-email-mock.vercel.app/?id=${id}`)
-            console.log(response.data);
             setEmailBody(response.data.body)
         } catch (error) {
             console.error(error)
@@ -44,7 +91,7 @@ export const CustomEmailProvider = ({children}) => {
 
     return(
         <emailContext.Provider
-            value={{allEmails, setSplitScreen, splitScreen, getBodyOfEmail, emailBody, emailDetailsHeader, setEmailDetailsHeader, currentlyOpenedEmail}}
+            value={{getAllEmails, allEmails, setSplitScreen, splitScreen, getBodyOfEmail, emailBody, emailDetailsHeader, setEmailDetailsHeader, currentlyOpenedEmail, handleFavoriteFilterClick, handleReadFilterClick, handleUnReadFilterClick}}
         >
             {children}
         </emailContext.Provider>

@@ -22,16 +22,14 @@ const Email = ({id, avatarText, from, name, subject, description, date}) => {
   }
 
   const {setSplitScreen, getBodyOfEmail, setEmailDetailsHeader} = useEmail()
+  const statusOfEmail = JSON.parse(localStorage.getItem(id))
 
   const handleClickOnEmail = () => {
     setSplitScreen(true)
     getBodyOfEmail(id)
     setEmailDetailsHeader({avatar: Avatar, subject:subject, date: formattedDateTime})
-    localStorage.setItem(id, JSON.stringify({read:true, fav: false}))
+    localStorage.setItem(id, JSON.stringify({...statusOfEmail, read:true}))
   }
-
-  const statusOfEmail = JSON.parse(localStorage.getItem(id))
-  console.log(statusOfEmail);
   
 
   return (

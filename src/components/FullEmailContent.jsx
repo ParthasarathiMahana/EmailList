@@ -7,7 +7,6 @@ function FullEmailContent({emailBody}) {
 
     const {setSplitScreen, emailDetailsHeader, currentlyOpenedEmail} = useEmail()
     const sanitizedBody = DOMPurify.sanitize(emailBody)
-    console.log(typeof emailBody);
 
     const handleClickfav = () => {
         const status = JSON.parse(localStorage.getItem(currentlyOpenedEmail))
