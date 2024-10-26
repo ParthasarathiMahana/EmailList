@@ -1,0 +1,34 @@
+.outerBox{
+    width: 95%;
+    height: 120px;
+    border: 1px solid #cfd2dc;
+    border-radius: 10px;
+    display: flex;
+}
+.avatarSection{
+    width: 8%;
+    display: flex;
+    justify-content: center;
+}
+.detailsSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.detailItem{
+    margin: 0;
+    padding-bottom: 9px;
+}
+.avatar{
+    height: 33%;
+    width: 43%;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 5px;
+    padding-top: 16%;
+    padding-left: 7%;
+    font-size: 1.5rem;
+    background-color: #e54065;
+    color: white;
+    margin-left: 10px;
+}
