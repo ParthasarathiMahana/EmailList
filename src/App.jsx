@@ -23,7 +23,7 @@ function App() {
         name={emailItem.from.name} 
         subject={emailItem.subject} 
         description={emailItem.short_description} 
-        date={new Date(emailItem.date).toLocaleString()}
+        date={emailItem.date}
         isFav={true}
         />
       ))}

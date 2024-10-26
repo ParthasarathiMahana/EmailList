@@ -6,3 +6,31 @@
     border-radius: 10px;
     height: 92vh;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+.leftPartHeader{
+    display: flex;
+    background-color: white;
+}
+.leftPartHeader{
+    display: flex;
+    background-color: white;
+}
+.rightHeader{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+.rightHeader button{
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+}
+.rightHeader button:hover{
+    cursor: pointer;
+    opacity: 30%;
+}

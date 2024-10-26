@@ -7,6 +7,7 @@ export const CustomEmailProvider = ({children}) => {
     const [allEmails, setAllEmails] = useState([])
     const [splitScreen, setSplitScreen] = useState(false)
     const [emailBody, setEmailBody] = useState({})
+    const [emailDetailsHeader, setEmailDetailsHeader] = useState({})
 
     const getAllEmails = async () => {
         try {
@@ -35,7 +36,7 @@ export const CustomEmailProvider = ({children}) => {
 
     return(
         <emailContext.Provider
-            value={{allEmails, setSplitScreen, splitScreen, getBodyOfEmail, emailBody}}
+            value={{allEmails, setSplitScreen, splitScreen, getBodyOfEmail, emailBody, emailDetailsHeader, setEmailDetailsHeader}}
         >
             {children}
         </emailContext.Provider>
