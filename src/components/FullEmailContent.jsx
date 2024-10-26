@@ -5,9 +5,15 @@ import { useEmail } from '../context/emailContext';
 
 function FullEmailContent({emailBody}) {
 
-    const {setSplitScreen, emailDetailsHeader} = useEmail()
+    const {setSplitScreen, emailDetailsHeader, currentlyOpenedEmail} = useEmail()
     const sanitizedBody = DOMPurify.sanitize(emailBody)
     console.log(typeof emailBody);
+
+    const handleClickfav = () => {
+        const status = JSON.parse(localStorage.getItem(currentlyOpenedEmail))
+        localStorage.setItem(currentlyOpenedEmail, JSON.stringify({...status, fav:true}))
+        alert("Email added to your favorite list.")
+    }
 
   return (
     <div className={styles.outerContainer}>
@@ -20,7 +26,9 @@ function FullEmailContent({emailBody}) {
                 </div>
             </div>
             <div className={styles.rightHeader}>
-                <button style={{backgroundColor: "#e54065", color:"white", fontWeight:"bold", width:"60%", paddingLeft:"5px", paddingRight:"5px"}}>mark as favorite</button>
+                <button 
+                onClick={handleClickfav}
+                style={{backgroundColor: "#e54065", color:"white", fontWeight:"bold", width:"60%", paddingLeft:"5px", paddingRight:"5px"}}>mark as favorite</button>
                 <button style={{backgroundColor:"white", width:"35%", border: "1px solid #e54065"}}
                 onClick={()=>setSplitScreen(false)}
                 >Close</button>

@@ -24,7 +24,6 @@ function App() {
         subject={emailItem.subject} 
         description={emailItem.short_description} 
         date={emailItem.date}
-        isFav={true}
         />
       ))}
     </div>
