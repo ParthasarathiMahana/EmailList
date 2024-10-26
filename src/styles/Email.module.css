@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 .avatarSection{
-    width: 8%;
+    width: 100px;
     display: flex;
     justify-content: center;
     background-color: white;
@@ -21,20 +21,37 @@
     flex-direction: column;
     justify-content: center;
     background-color: white;
+    overflow: hidden; 
 }
 .detailItem{
+    display: flex;
+    align-items: center;
     margin: 0;
-    padding-bottom: 5px;
+    margin-bottom: 10px;
     background-color: white;
+    height:10px;
+    font-size: 15px;
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 320px;
+}
+.detailItemValues{
+    font-weight: bold;
+    background-color: white;
+    font-size: 15px;
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .avatar{
-    height: 33%;
-    width: 43%;
+    height: 35px;
+    width: 40px;
     border-radius: 50%;
     text-align: center;
     margin-top: 5px;
-    padding-top: 16%;
-    padding-left: 7%;
+    padding-top: 10px;
+    padding-left: 7px;
     font-size: 1.5rem;
     background-color: #e54065;
     color: white;

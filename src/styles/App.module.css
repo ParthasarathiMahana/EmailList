@@ -1,3 +1,10 @@
 .outerContainer{
     padding-left: 15px;
+    display: flex;
+}
+.emailContainer{
+    width: 35%;
+    height: 92vh;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
 }

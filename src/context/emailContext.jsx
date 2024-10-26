@@ -5,6 +5,8 @@ export const emailContext = createContext();
 
 export const CustomEmailProvider = ({children}) => {
     const [allEmails, setAllEmails] = useState([])
+    const [splitScreen, setSplitScreen] = useState(false)
+    const [emailBody, setEmailBody] = useState({})
 
     const getAllEmails = async () => {
         try {
@@ -21,9 +23,19 @@ export const CustomEmailProvider = ({children}) => {
         getAllEmails()
     },[])
 
+    const getBodyOfEmail = async (id) => {
+        try {
+            const response = await axios.get(`https://flipkart-email-mock.vercel.app/?id=${id}`)
+            console.log(response.data);
+            setEmailBody(response.data.body)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return(
         <emailContext.Provider
-            value={{allEmails}}
+            value={{allEmails, setSplitScreen, splitScreen, getBodyOfEmail, emailBody}}
         >
             {children}
         </emailContext.Provider>

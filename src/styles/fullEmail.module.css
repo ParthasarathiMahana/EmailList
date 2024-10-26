@@ -1,0 +1,8 @@
+.outerContainer{
+    border: 1px solid #cfd2dc;
+    background-color: white;
+    width: 68%;
+    margin-left: 2%;
+    border-radius: 10px;
+    height: 92vh;
+}
